@@ -3,53 +3,43 @@ using System.Collections.Generic;
 using System.Text;
 using Trestlebridge.Interfaces;
 
-namespace Trestlebridge.Models.Facilities
-{
-  public class DuckHouse : IFacility<IEggProducing>
-  {
+namespace Trestlebridge.Models.Facilities {
+  public class DuckHouse : IFacility<IEggProducing> {
     private int _capacity = 12;
-    private Guid _id = Guid.NewGuid();
+    private Guid _id = Guid.NewGuid ();
 
-    public List<IEggProducing> Ducks = new List<IEggProducing>();
+    private List<IEggProducing> _ducks = new List<IEggProducing> ();
 
-    public double Capacity
-    {
-      get
-      {
+    public double Capacity {
+      get {
         return _capacity;
       }
     }
 
-    public void AddResource(IEggProducing animal)
-    {
-      Ducks.Add(animal);
+    public void AddResource (IEggProducing animal) {
+      _ducks.Add (animal);
       // TODO: implement this...
       // throw new NotImplementedException();
     }
 
-    public void AddResource(List<IEggProducing> animals)
-    {
+    public void AddResource (List<IEggProducing> animals) {
       // TODO: implement this...
       // throw new NotImplementedException();
     }
 
-    public override string ToString()
-    {
-      StringBuilder output = new StringBuilder();
+    public override string ToString () {
+      StringBuilder output = new StringBuilder ();
       string shortId = $"{this._id.ToString().Substring(this._id.ToString().Length - 6)}";
 
-      if (this.Ducks.Count == 1)
-      {
-        output.Append($"Duck house {shortId} has {this.Ducks.Count} duck\n");
-      }
-      else
-      {
-        output.Append($"Duck house {shortId} has {this.Ducks.Count} ducks\n");
+      if (this._ducks.Count == 1) {
+        output.Append ($"Duck house {shortId} has {this._ducks.Count} duck\n");
+      } else {
+        output.Append ($"Duck house {shortId} has {this._ducks.Count} _ducks\n");
       }
 
-      this.Ducks.ForEach(a => output.Append($"   {a}\n"));
+      this._ducks.ForEach (a => output.Append ($"   {a}\n"));
 
-      return output.ToString();
+      return output.ToString ();
     }
   }
 }
