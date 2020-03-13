@@ -23,9 +23,9 @@ namespace Trestlebridge.Actions
             Console.WriteLine($"Place the animal where?");
 
             // Console.Write("> ");
-            foreach (var field in farm.DuckHomes)
+            foreach (var home in farm.DuckHomes)
             {
-                Console.WriteLine($"{farm.DuckHomes.IndexOf(field)}. {field}");
+                Console.WriteLine($"{farm.DuckHomes.IndexOf(home)}. {home}");
             }
             int choice = Int32.Parse(Console.ReadLine());
 
@@ -35,7 +35,7 @@ namespace Trestlebridge.Actions
                 Couldn't get this to work. Can you?
                 Stretch goal. Only if the app is fully functional.
              */
-            // farm.PurchaseResource<IGrazing>(animal, choice);
+            // farm.PurchaseResource<IEggProducing>(animal, choice);
 
         }
     }
