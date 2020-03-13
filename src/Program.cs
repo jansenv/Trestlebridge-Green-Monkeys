@@ -19,13 +19,13 @@ namespace Trestlebridge
                     +-++-++-++-++-+");
             Console.WriteLine();
         }
-
         static void Main(string[] args)
         {
             Console.ForegroundColor = ConsoleColor.White;
             Console.BackgroundColor = ConsoleColor.DarkMagenta;
 
             Farm Trestlebridge = new Farm();
+            ChickenHouse ChickenCoup = new ChickenHouse();
 
             while (true)
             {
