@@ -19,14 +19,18 @@ namespace Trestlebridge.Actions
             Console.Write("> ");
             string input = Console.ReadLine();
 
-            switch (Int32.Parse (input)) {
+            switch (Int32.Parse(input))
+            {
                 case 1:
-                    farm.AddGrazingField (new GrazingField ());
-                    Console.WriteLine ("Grazing field has been added to facilities.");
-                    Console.ReadLine ();
+                    farm.AddGrazingField(new GrazingField());
+                    Console.WriteLine("Grazing field has been added to facilities.");
+                    Console.ReadLine();
                     break;
                 case 2:
                     farm.AddChickenHouse(new ChickenHouse());
+                    Console.WriteLine("Chicken house has been added to facilities.");
+                    Console.WriteLine($"There is {farm.ChickenHomes.Count} chicken homes!");
+                    Console.ReadLine();
                     break;
                 default:
                     break;
