@@ -5,12 +5,12 @@ using Trestlebridge.Interfaces;
 
 namespace Trestlebridge.Models.Facilities
 {
-  public class ChickenHouse : IFacility<IChickenHouse>
+  public class DuckHouse : IFacility<IDuckHouse>
   {
-    private int _capacity = 15;
+    private int _capacity = 12;
     private Guid _id = Guid.NewGuid();
 
-    private List<IChickenHouse> _chicken = new List<IChickenHouse>();
+    private List<IDuckHouse> _duck = new List<IDuckHouse>();
 
     public double Capacity
     {
@@ -20,13 +20,13 @@ namespace Trestlebridge.Models.Facilities
       }
     }
 
-    public void AddResource(IChickenHouse chicken)
+    public void AddResource(IDuckHouse duck)
     {
       // TODO: implement this...
       throw new NotImplementedException();
     }
 
-    public void AddResource(List<IChickenHouse> chicken)
+    public void AddResource(List<IDuckHouse> duck)
     {
       // TODO: implement this...
       throw new NotImplementedException();
@@ -35,19 +35,18 @@ namespace Trestlebridge.Models.Facilities
     public override string ToString()
     {
       StringBuilder output = new StringBuilder();
-
       string shortId = $"{this._id.ToString().Substring(this._id.ToString().Length - 6)}";
 
-      if (this._chicken.Count == 1)
+      if (this._duck.Count == 1)
       {
-        output.Append($"Chicken house {shortId} has {this._chicken.Count} chicken\n");
+        output.Append($"Duck house {shortId} has {this._duck.Count} duck\n");
       }
       else
       {
-        output.Append($"Chicken house {shortId} has {this._chicken.Count} chicken\n");
+        output.Append($"Duck house {shortId} has {this._duck.Count} ducks\n");
       }
 
-      this._chicken.ForEach(a => output.Append($"   {a}\n"));
+      this._duck.ForEach(a => output.Append($"   {a}\n"));
 
       return output.ToString();
     }
