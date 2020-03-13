@@ -26,7 +26,7 @@ namespace Trestlebridge.Models.Facilities
       throw new NotImplementedException();
     }
 
-    public void AddResource(List<IEggProducing> animal)
+    public void AddResource(List<IEggProducing> animals)
     {
       // TODO: implement this...
       throw new NotImplementedException();
