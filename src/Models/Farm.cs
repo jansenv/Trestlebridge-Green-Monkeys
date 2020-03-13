@@ -10,6 +10,8 @@ namespace Trestlebridge.Models
     {
         public List<GrazingField> GrazingFields { get; } = new List<GrazingField>();
         public List<ChickenHouse> ChickenHomes { get; } = new List<ChickenHouse>();
+        public List<NaturalField> NaturalFields { get; } = new List<NaturalField>();
+        public List<PlowedField> PlowedFields { get; } = new List<PlowedField>();
         public List<DuckHouse> DuckHomes { get; } = new List<DuckHouse>();
 
         /*
@@ -28,6 +30,12 @@ namespace Trestlebridge.Models
                 case "Chicken":
                     ChickenHomes[index].AddResource((IChickenHouse)resource);
                     break;
+                case "Wildflower":
+                    NaturalFields[index].AddResource((ISeedProducing)resource);
+                    break;
+                case "Sunflower":
+                    NaturalFields[index].AddResource((ISeedProducing)resource);
+                    break;
                 case "Duck":
                     DuckHomes[index].AddResource((IDuckHouse)resource);
                     break;
@@ -40,13 +48,22 @@ namespace Trestlebridge.Models
         {
             GrazingFields.Add(field);
         }
-        public void AddChickenHouse(ChickenHouse chickenHome)
+        public void AddNaturalField(NaturalField field)
         {
-            ChickenHomes.Add(chickenHome);
+            NaturalFields.Add(field);
         }
-        public void AddDuckHouse(DuckHouse duckHome)
+        public void AddPlowedField(PlowedField field)
         {
-            DuckHomes.Add(duckHome);
+            PlowedFields.Add(field);
+        }
+
+        public void AddChickenHouse(ChickenHouse coup)
+        {
+            ChickenHomes.Add(coup);
+        }
+        public void AddDuckHouse(DuckHouse pond)
+        {
+            DuckHomes.Add(pond);
         }
 
         public override string ToString()
@@ -54,8 +71,8 @@ namespace Trestlebridge.Models
             StringBuilder report = new StringBuilder();
 
             GrazingFields.ForEach(gf => report.Append(gf));
-            ChickenHomes.ForEach(ch => report.Append(ch));
-            DuckHomes.ForEach(dh => report.Append(dh));
+            ChickenHomes.ForEach(cc => report.Append(cc));
+            DuckHomes.ForEach(dp => report.Append(dp));
 
             return report.ToString();
         }
