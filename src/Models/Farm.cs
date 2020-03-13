@@ -4,52 +4,59 @@ using System.Text;
 using Trestlebridge.Interfaces;
 using Trestlebridge.Models.Facilities;
 
-namespace Trestlebridge.Models
-{
-    public class Farm
-    {
-        public List<GrazingField> GrazingFields { get; } = new List<GrazingField>();
-        public List<ChickenHouse> ChickenHomes { get; } = new List<ChickenHouse>();
+namespace Trestlebridge.Models {
+    public class Farm {
+        public List<GrazingField> GrazingFields { get; } = new List<GrazingField> ();
+        public List<ChickenHouse> ChickenHomes { get; } = new List<ChickenHouse> ();
+        public List<NaturalField> NaturalFields { get; } = new List<NaturalField> ();
+        public List<PlowedField> PlowedFields { get; } = new List<PlowedField> ();
 
         /*
             This method must specify the correct product interface of the
             resource being purchased.
          */
-        public void PurchaseResource<T>(IResource resource, int index)
-        {
-            Console.WriteLine(typeof(T).ToString());
-            switch (typeof(T).ToString())
-            {
+        public void PurchaseResource<T> (IResource resource, int index) {
+            Console.WriteLine (typeof (T).ToString ());
+            switch (typeof (T).ToString ()) {
                 case "Cow":
-                    GrazingFields[index].AddResource((IGrazing)resource);
+                    GrazingFields[index].AddResource ((IGrazing) resource);
                     break;
 
                 case "Chicken":
-                    ChickenHomes[index].AddResource((IChickenHouse)resource);
+                    ChickenHomes[index].AddResource ((IChickenHouse) resource);
+                    break;
+                case "Wildflower":
+                    NaturalFields[index].AddResource ((ISeedProducing) resource);
+                    break;
+                case "Sunflower":
+                    NaturalFields[index].AddResource ((ISeedProducing) resource);
                     break;
                 default:
                     break;
             }
         }
 
-        public void AddGrazingField(GrazingField field)
-        {
-            GrazingFields.Add(field);
+        public void AddGrazingField (GrazingField field) {
+            GrazingFields.Add (field);
+        }
+        public void AddNaturalField (NaturalField field) {
+            NaturalFields.Add (field);
+        }
+        public void AddPlowedField (PlowedField field) {
+            PlowedFields.Add (field);
         }
 
-        public void AddChickenHouse(ChickenHouse coup)
-        {
-            ChickenHomes.Add(coup);
+        public void AddChickenHouse (ChickenHouse coup) {
+            ChickenHomes.Add (coup);
         }
 
-        public override string ToString()
-        {
-            StringBuilder report = new StringBuilder();
+        public override string ToString () {
+            StringBuilder report = new StringBuilder ();
 
-            GrazingFields.ForEach(gf => report.Append(gf));
-            ChickenHomes.ForEach(cc => report.Append(cc));
+            GrazingFields.ForEach (gf => report.Append (gf));
+            ChickenHomes.ForEach (cc => report.Append (cc));
 
-            return report.ToString();
+            return report.ToString ();
         }
     }
 }
