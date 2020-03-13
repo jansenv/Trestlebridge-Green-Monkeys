@@ -12,16 +12,16 @@ namespace Trestlebridge.Actions
         public static void CollectInput(Farm farm)
         {
             var animalList = new List<IResource>();
-            animalList.Add(new Chicken());
             animalList.Add(new Cow());
-            animalList.Add(new Duck());
             animalList.Add(new Goat());
             animalList.Add(new Ostrich());
             animalList.Add(new Pig());
             animalList.Add(new Sheep());
 
-            Console.WriteLine("1. Cow");
-            Console.WriteLine("2. Ostrich");
+            foreach (var animal in animalList)
+            {
+                Console.WriteLine($"{animalList.IndexOf(animal)}. {animal}");
+            }
 
             Console.WriteLine();
             Console.WriteLine("What are you buying today?");
