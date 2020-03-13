@@ -20,13 +20,13 @@ namespace Trestlebridge.Models.Facilities
       }
     }
 
-    public void AddResource(IChickenHouse chicken)
+    public void AddResource(IChickenHouse animal)
     {
       // TODO: implement this...
       throw new NotImplementedException();
     }
 
-    public void AddResource(List<IChickenHouse> chicken)
+    public void AddResource(List<IChickenHouse> animals)
     {
       // TODO: implement this...
       throw new NotImplementedException();
