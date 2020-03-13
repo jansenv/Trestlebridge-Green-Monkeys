@@ -5,12 +5,12 @@ using Trestlebridge.Interfaces;
 
 namespace Trestlebridge.Models.Facilities
 {
-  public class DuckHouse : IFacility<IDuckHouse>
+  public class DuckHouse : IFacility<IEggProducing>
   {
     private int _capacity = 12;
     private Guid _id = Guid.NewGuid();
 
-    private List<IDuckHouse> _duck = new List<IDuckHouse>();
+    private List<IEggProducing> _duck = new List<IEggProducing>();
 
     public double Capacity
     {
@@ -20,13 +20,13 @@ namespace Trestlebridge.Models.Facilities
       }
     }
 
-    public void AddResource(IDuckHouse duck)
+    public void AddResource(IEggProducing animal)
     {
       // TODO: implement this...
       throw new NotImplementedException();
     }
 
-    public void AddResource(List<IDuckHouse> duck)
+    public void AddResource(List<IEggProducing> animals)
     {
       // TODO: implement this...
       throw new NotImplementedException();
