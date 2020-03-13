@@ -28,7 +28,7 @@ namespace Trestlebridge.Models
                     break;
 
                 case "Chicken":
-                    ChickenHomes[index].AddResource((IChickenHouse)resource);
+                    ChickenHomes[index].AddResource((IEggProducing)resource);
                     break;
                 case "Wildflower":
                     NaturalFields[index].AddResource((ISeedProducing)resource);
@@ -37,7 +37,7 @@ namespace Trestlebridge.Models
                     NaturalFields[index].AddResource((ISeedProducing)resource);
                     break;
                 case "Duck":
-                    DuckHomes[index].AddResource((IDuckHouse)resource);
+                    DuckHomes[index].AddResource((IEggProducing)resource);
                     break;
                 default:
                     break;
