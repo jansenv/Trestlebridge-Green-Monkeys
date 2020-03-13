@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Trestlebridge.Interfaces;
 
-namespace Trestlebridge
+namespace Trestlebridge.Models.Facilities
 {
   public class ChickenHouse : IFacility<IChickenHouse>
   {
@@ -20,13 +20,13 @@ namespace Trestlebridge
       }
     }
 
-    public void AddResource(IGrazing chicken)
+    public void AddResource(IChickenHouse chicken)
     {
       // TODO: implement this...
       throw new NotImplementedException();
     }
 
-    public void AddResource(List<IGrazing> chicken)
+    public void AddResource(List<IChickenHouse> chicken)
     {
       // TODO: implement this...
       throw new NotImplementedException();

@@ -25,7 +25,7 @@ namespace Trestlebridge
             Console.BackgroundColor = ConsoleColor.Cyan;
 
             Farm Trestlebridge = new Farm();
-            ChickenHouse ChickenCoup = new ChickenHouse();
+            
 
             while (true)
             {

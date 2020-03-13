@@ -1,13 +1,8 @@
-using System.Collections.Generic;
-using Trestlebridge.Models.Animals;
-
 namespace Trestlebridge.Interfaces
 {
-  public interface IChickenHouse<T>
+  public interface IChickenHouse
   {
-    double Capacity { get; }
-
-    void AddResource(T resource);
-    void AddResource(List<T> resources);
+    double ChickenCapacity { get; set; }
+    void Graze();
   }
 }
