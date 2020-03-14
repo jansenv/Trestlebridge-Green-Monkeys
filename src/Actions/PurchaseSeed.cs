@@ -21,7 +21,7 @@ namespace Trestlebridge.Actions
             }
 
             Console.WriteLine();
-            Console.WriteLine("What are you buying today?");
+            Console.WriteLine("Choose seed to purchase.");
 
             Console.Write("> ");
             string choice = Console.ReadLine();

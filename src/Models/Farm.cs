@@ -30,6 +30,9 @@ namespace Trestlebridge.Models
                 case "Chicken":
                     ChickenHomes[index].AddResource((IEggProducing)resource);
                     break;
+                case "Sesame":
+                    PlowedFields[index].AddResource((ISeedProducing)resource);
+                    break;
                 case "Wildflower":
                     NaturalFields[index].AddResource((ISeedProducing)resource);
                     break;
