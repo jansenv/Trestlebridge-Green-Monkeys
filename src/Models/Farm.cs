@@ -73,6 +73,8 @@ namespace Trestlebridge.Models
             GrazingFields.ForEach(gf => report.Append(gf));
             ChickenHomes.ForEach(cc => report.Append(cc));
             DuckHomes.ForEach(dp => report.Append(dp));
+            NaturalFields.ForEach(nf => report.Append(nf));
+            PlowedFields.ForEach(pf => report.Append(pf));
 
             return report.ToString();
         }
