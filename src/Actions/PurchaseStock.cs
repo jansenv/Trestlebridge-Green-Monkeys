@@ -62,31 +62,5 @@ namespace Trestlebridge.Actions
                     break;
             }
         }
-
-        public static void CollectPlantInput(Farm farm)
-        {
-            var plantList = new List<IResource>();
-            plantList.Add(new Sesame());
-
-            foreach (var plant in plantList)
-            {
-                Console.WriteLine($"{plantList.IndexOf(plant)}. {plant}");
-            }
-
-            Console.WriteLine();
-            Console.WriteLine("What are you buying today?");
-
-            Console.Write("> ");
-            string choice = Console.ReadLine();
-
-            switch (Int32.Parse(choice))
-            {
-                case 1:
-                    ChooseGrazingField.CollectInput(farm, new Sesame());
-                    break;
-                default:
-                    break;
-            }
-        }
     }
 }
