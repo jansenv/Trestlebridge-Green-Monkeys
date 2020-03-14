@@ -11,7 +11,7 @@ namespace Trestlebridge.Models.Facilities
         private int _plantPerRowCapacity = 6;
         private Guid _id = Guid.NewGuid();
 
-        private List<ISeedProducing> _seeds = new List<ISeedProducing>();
+        private List<IResource> _plants = new List<IResource>();
 
         public double Capacity
         {
@@ -22,14 +22,13 @@ namespace Trestlebridge.Models.Facilities
         }
         public void AddResource(IResource plant)
         {
+            _plants.Add(plant);
             // TODO: implement this...
-            throw new NotImplementedException();
         }
 
         public void AddResource(List<IResource> plant)
         {
             // TODO: implement this...
-            throw new NotImplementedException();
         }
 
         public override string ToString()
@@ -37,8 +36,8 @@ namespace Trestlebridge.Models.Facilities
             StringBuilder output = new StringBuilder();
             string shortId = $"{this._id.ToString().Substring(this._id.ToString().Length - 6)}";
 
-            output.Append($"Natural field {shortId} has {this._seeds.Count} plants\n");
-            this._seeds.ForEach(a => output.Append($"   {a}\n"));
+            output.Append($"Natural field {shortId} has {this._plants.Count} plants\n");
+            this._plants.ForEach(a => output.Append($"   {a}\n"));
 
             return output.ToString();
         }
