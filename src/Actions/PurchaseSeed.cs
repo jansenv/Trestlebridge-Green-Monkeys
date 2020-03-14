@@ -14,6 +14,8 @@ namespace Trestlebridge.Actions
         {
             var plantList = new List<IResource>();
             plantList.Add(new Sesame());
+            plantList.Add(new Sunflower());
+            plantList.Add(new Wildflower());
 
             foreach (var plant in plantList)
             {
@@ -30,6 +32,12 @@ namespace Trestlebridge.Actions
             {
                 case 1:
                     ChoosePlowedField.CollectInput(farm, new Sesame());
+                    break;
+                case 2:
+                    ChooseNaturalField.CollectInput(farm, new Sunflower());
+                    break;
+                case 3:
+                    ChooseNaturalField.CollectInput(farm, new Wildflower());
                     break;
                 default:
                     break;
