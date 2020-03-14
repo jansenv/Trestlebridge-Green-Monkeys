@@ -34,10 +34,10 @@ namespace Trestlebridge.Models
                     PlowedFields[index].AddResource((ISeedProducing)resource);
                     break;
                 case "Wildflower":
-                    NaturalFields[index].AddResource((ISeedProducing)resource);
+                    NaturalFields[index].AddResource((IResource)resource);
                     break;
                 case "Sunflower":
-                    NaturalFields[index].AddResource((ISeedProducing)resource);
+                    NaturalFields[index].AddResource((IResource)resource);
                     break;
                 case "Duck":
                     DuckHomes[index].AddResource((IEggProducing)resource);
