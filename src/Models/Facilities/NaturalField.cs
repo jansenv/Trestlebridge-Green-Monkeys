@@ -8,7 +8,7 @@ namespace Trestlebridge.Models.Facilities
 {
     public class NaturalField : IFacility<IResource>
     {
-        private int _rowCapacity = 10;
+        private int _rowCapacity = 1;
         private int _plantPerRowCapacity = 6;
         private Guid _id = Guid.NewGuid();
 
@@ -18,7 +18,7 @@ namespace Trestlebridge.Models.Facilities
         {
             get
             {
-                return _rowCapacity * _plantPerRowCapacity;
+                return _rowCapacity;
             }
         }
         public void AddResource(IResource plant)
@@ -46,6 +46,14 @@ namespace Trestlebridge.Models.Facilities
         public string PlantCount()
         {
             return $"({this._plants.Count} plants)";
+        }
+
+        public int PlantCountInt
+        {
+            get
+            {
+                return _plants.Count;
+            }
         }
 
         public void PlantTypeCount()

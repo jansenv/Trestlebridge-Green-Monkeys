@@ -8,7 +8,7 @@ namespace Trestlebridge.Models.Facilities
 {
     public class PlowedField : IFacility<IResource>
     {
-        private int _rowCapacity = 13;
+        private int _rowCapacity = 1;
         private int _plantPerRowCapacity = 5;
         private Guid _id = Guid.NewGuid();
 
@@ -18,7 +18,7 @@ namespace Trestlebridge.Models.Facilities
         {
             get
             {
-                return _rowCapacity * _plantPerRowCapacity;
+                return _rowCapacity;
             }
         }
         public void AddResource(IResource plant)
@@ -44,6 +44,14 @@ namespace Trestlebridge.Models.Facilities
         public string PlantCount()
         {
             return $"({this._seeds.Count} plants)";
+        }
+
+        public int PlantCountInt
+        {
+            get
+            {
+                return _seeds.Count;
+            }
         }
         public void PlantTypeCount()
         {

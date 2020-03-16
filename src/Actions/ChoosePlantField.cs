@@ -8,89 +8,104 @@ namespace Trestlebridge.Actions
 {
     public class ChoosePlantField
     {
-        public static void CollectInput(Farm farm, IResource Plant, int fieldTypeNum)
+        public static void CollectInput(Farm farm, IResource plant, int fieldTypeNum)
         {
             Utils.Clear();
+            Console.WriteLine($"Place the plant where?");
+            Console.Write("> ");
 
-            static void NaturalFieldsPrint(Farm farm)
+            static void NaturalFieldsPrint(Farm farm, IResource plant)
             {
-                for (int i = 0; i < farm.NaturalFields.Count; i++)
+                var filteredFields = farm.NaturalFields.Where(field => field.Capacity > field.PlantCountInt).ToList();
+                for (int i = 0; i < filteredFields.Count; i++)
                 {
-                    Console.Write($"{i + 1}. Natural Field {farm.NaturalFields[i].PlantCount()} ");
-                    farm.NaturalFields[i].PlantTypeCount();
+                    Console.Write($"{i + 1}. Natural Field {filteredFields[i].PlantCount()} ");
+                    filteredFields[i].PlantTypeCount();
                     Console.WriteLine();
                 }
+                int choice = Int32.Parse(Console.ReadLine()) - 1;
+                filteredFields[choice].AddResource(plant);
             }
 
-            static void PlowedFieldsPrint(Farm farm)
+            static void PlowedFieldsPrint(Farm farm, IResource plant)
             {
-                for (int i = 0; i < farm.PlowedFields.Count; i++)
+                var filteredFields = farm.PlowedFields.Where(field => field.Capacity > field.PlantCountInt).ToList();
+                for (int i = 0; i < filteredFields.Count; i++)
                 {
                     Console.Write($"{i + 1}. Plowed Field {farm.PlowedFields[i].PlantCount()} ");
-                    farm.PlowedFields[i].PlantTypeCount();
+                    filteredFields[i].PlantTypeCount();
                     Console.WriteLine();
                 }
+                int choice = Int32.Parse(Console.ReadLine()) - 1;
+                filteredFields[choice].AddResource(plant);
             }
 
-            static void FieldListForSunflowers(Farm farm)
+            static void FieldListForSunflowers(Farm farm, IResource plant)
             {
+                var filteredNaturalFields = farm.NaturalFields.Where(field => field.Capacity > field.PlantCountInt).ToList();
+
+                var filteredPlowedFields = farm.PlowedFields.Where(field => field.Capacity > field.PlantCountInt).ToList();
+
                 int indexCounter = farm.NaturalFields.Count;
-                for (int i = 0; i < farm.NaturalFields.Count; i++)
+                for (int i = 0; i < filteredNaturalFields.Count; i++)
                 {
                     Console.Write($"{i + 1}. Natural Field {farm.NaturalFields[i].PlantCount()} ");
-                    farm.NaturalFields[i].PlantTypeCount();
+                    filteredNaturalFields[i].PlantTypeCount();
                     Console.WriteLine();
                 }
 
-                for (int i = 0; i < farm.PlowedFields.Count; i++)
+                for (int i = 0; i < filteredPlowedFields.Count; i++)
                 {
                     Console.Write($"{i + 1 + indexCounter}. Plowed Field {farm.PlowedFields[i].PlantCount()} ");
-                    farm.PlowedFields[i].PlantTypeCount();
+                    filteredPlowedFields[i].PlantTypeCount();
                     Console.WriteLine();
                 }
+
+                int choice = Int32.Parse(Console.ReadLine()) - 1;
+
+                // filteredNaturalFields[NaturalChoice].AddResource(plant);
+                // int PlowedChoice = Int32.Parse(Console.ReadLine()) - 1;
+                // filteredPlowedFields[PlowedChoice].AddResource(plant);
             }
 
             if (fieldTypeNum == 1)
             {
-                PlowedFieldsPrint(farm);
+                PlowedFieldsPrint(farm, plant);
             }
             else if (fieldTypeNum == 2)
             {
-                NaturalFieldsPrint(farm);
+                NaturalFieldsPrint(farm, plant);
             }
             else
             {
-                FieldListForSunflowers(farm);
+                FieldListForSunflowers(farm, plant);
             }
 
             Console.WriteLine();
 
             // How can I output the type of Plant chosen here?
-            Console.WriteLine($"Place the plant where?");
 
-            Console.Write("> ");
-            int choice = Int32.Parse(Console.ReadLine()) - 1;
 
-            if (fieldTypeNum == 1)
-            {
-                farm.PlowedFields[choice].AddResource(Plant);
-            }
-            else if (fieldTypeNum == 2)
-            {
-                farm.NaturalFields[choice].AddResource(Plant);
-            }
-            else
-            {
-                if (choice > farm.NaturalFields.Count - 1)
-                {
-                    choice = choice - farm.NaturalFields.Count;
-                    farm.PlowedFields[choice].AddResource(Plant);
-                }
-                else
-                {
-                    farm.NaturalFields[choice].AddResource(Plant);
-                }
-            }
+            // if (fieldTypeNum == 1)
+            // {
+            //     farm.PlowedFields[choice].AddResource(Plant);
+            // }
+            // else if (fieldTypeNum == 2)
+            // {
+            //     farm.NaturalFields[choice].AddResource(Plant);
+            // }
+            // else
+            // {
+            //     if (choice > farm.NaturalFields.Count - 1)
+            //     {
+            //         choice = choice - farm.NaturalFields.Count;
+            //         farm.PlowedFields[choice].AddResource(Plant);
+            //     }
+            //     else
+            //     {
+            //         farm.NaturalFields[choice].AddResource(Plant);
+            //     }
+            // }
 
             // farm.GrazingFields[choice].AddResource (Plant);
 
