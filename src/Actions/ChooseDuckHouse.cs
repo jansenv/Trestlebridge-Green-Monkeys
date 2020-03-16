@@ -19,16 +19,30 @@ namespace Trestlebridge.Actions {
             // How can I output the type of animal chosen here?
             Console.WriteLine ($"Place the animal where?");
 
-            // Console.Write("> ");
-            foreach (var home in farm.DuckHomes) {
-                if (home.Capacity > home.AnimalCount) {
+            static void duckHouseSelect (Farm farm, IEggProducing animal) {
+                var filteredDuckHouses = farm.DuckHomes.Where (home => home.Capacity > home.AnimalCount).ToList ();
 
-                    Console.WriteLine ($"{farm.DuckHomes.IndexOf(home)}. {home}");
+                for (int i = 0; i < filteredDuckHouses.Count (); i++) {
+                    Console.Write ($"{i+1}. Duck House {filteredDuckHouses[i].ShortId} has {filteredDuckHouses[i].AnimalCount} ducks");
+
+                    Console.WriteLine ();
                 }
-            }
-            int choice = Int32.Parse (Console.ReadLine ());
 
-            farm.DuckHomes[choice].AddResource (animal);
+                int choice = Int32.Parse (Console.ReadLine ());
+                filteredDuckHouses[choice - 1].AddResource (animal);
+            }
+
+            duckHouseSelect (farm, animal);
+            // Console.Write("> ");
+            // foreach (var home in farm.DuckHomes) {
+            //     if (home.Capacity > home.AnimalCount) {
+
+            //         Console.WriteLine ($"{farm.DuckHomes.IndexOf(home)}. {home}");
+            //     }
+            // }
+            // int choice = Int32.Parse (Console.ReadLine ());
+
+            // farm.DuckHomes[choice].AddResource (animal);
 
             /*
                 Couldn't get this to work. Can you?

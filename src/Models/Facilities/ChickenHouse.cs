@@ -7,6 +7,11 @@ namespace Trestlebridge.Models.Facilities {
   public class ChickenHouse : IFacility<IEggProducing> {
     private int _capacity = 15;
     private Guid _id = Guid.NewGuid ();
+    public string ShortId {
+      get {
+        return this._id.ToString ().Substring (this._id.ToString ().Length - 6);
+      }
+    }
 
     private List<IEggProducing> _chickens = new List<IEggProducing> ();
     public int AnimalCount {
