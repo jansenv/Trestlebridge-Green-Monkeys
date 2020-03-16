@@ -32,7 +32,7 @@ namespace Trestlebridge.Actions
                 var filteredFields = farm.PlowedFields.Where(field => field.Capacity > field.PlantCountInt).ToList();
                 for (int i = 0; i < filteredFields.Count; i++)
                 {
-                    Console.Write($"{i + 1}. Plowed Field {farm.PlowedFields[i].PlantCount()} ");
+                    Console.Write($"{i + 1}. Plowed Field {filteredFields[i].PlantCount()} ");
                     filteredFields[i].PlantTypeCount();
                     Console.WriteLine();
                 }
@@ -46,26 +46,33 @@ namespace Trestlebridge.Actions
 
                 var filteredPlowedFields = farm.PlowedFields.Where(field => field.Capacity > field.PlantCountInt).ToList();
 
-                int indexCounter = farm.NaturalFields.Count;
+                int indexCounter = filteredNaturalFields.Count;
+
                 for (int i = 0; i < filteredNaturalFields.Count; i++)
                 {
-                    Console.Write($"{i + 1}. Natural Field {farm.NaturalFields[i].PlantCount()} ");
+                    Console.Write($"{i + 1}. Natural Field {filteredNaturalFields[i].PlantCount()} ");
                     filteredNaturalFields[i].PlantTypeCount();
                     Console.WriteLine();
                 }
 
                 for (int i = 0; i < filteredPlowedFields.Count; i++)
                 {
-                    Console.Write($"{i + 1 + indexCounter}. Plowed Field {farm.PlowedFields[i].PlantCount()} ");
+                    Console.Write($"{i + 1 + indexCounter}. Plowed Field {filteredPlowedFields[i].PlantCount()} ");
                     filteredPlowedFields[i].PlantTypeCount();
                     Console.WriteLine();
                 }
 
                 int choice = Int32.Parse(Console.ReadLine()) - 1;
 
-                // filteredNaturalFields[NaturalChoice].AddResource(plant);
-                // int PlowedChoice = Int32.Parse(Console.ReadLine()) - 1;
-                // filteredPlowedFields[PlowedChoice].AddResource(plant);
+                if (choice > indexCounter - 1)
+                {
+                    filteredPlowedFields[choice - indexCounter].AddResource(plant);
+                }
+                else
+                {
+                    filteredNaturalFields[choice].AddResource(plant);
+                }
+
             }
 
             if (fieldTypeNum == 1)

@@ -8,7 +8,7 @@ namespace Trestlebridge.Models.Facilities
 {
     public class PlowedField : IFacility<IResource>
     {
-        private int _rowCapacity = 1;
+        private int _rowCapacity = 13;
         private int _plantPerRowCapacity = 5;
         private Guid _id = Guid.NewGuid();
 
