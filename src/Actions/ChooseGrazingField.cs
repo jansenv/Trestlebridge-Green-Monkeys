@@ -8,29 +8,31 @@ namespace Trestlebridge.Actions {
     public class ChooseGrazingField {
         public static void CollectInput (Farm farm, IGrazing animal) {
             Utils.Clear ();
-            while (true) {
-                for (int i = 0; i < farm.GrazingFields.Count; i++) {
-                    Console.WriteLine ($"{i + 1}. Grazing Field");
-                }
+            // while (true) {
+            // for (int i = 0; i < farm.GrazingFields.Count; i++) {
+            //     Console.WriteLine ($"{i + 1}. Grazing Field");
+            // }
 
-                Console.WriteLine ();
+            // Console.WriteLine ();
 
-                // How can I output the type of animal chosen here?
-                Console.WriteLine ($"Place the animal where?");
+            // How can I output the type of animal chosen here?
+            Console.WriteLine ($"Place the animal where?");
 
-                // Console.Write("> ");
-                foreach (var field in farm.GrazingFields) {
+            // Console.Write("> ");
+            foreach (var field in farm.GrazingFields) {
+                if (field.Capacity > field.AnimalCount) {
                     Console.WriteLine ($"{farm.GrazingFields.IndexOf(field)}. {field}");
                 }
-                int choice = Int32.Parse (Console.ReadLine ());
-
-                if (farm.GrazingFields[choice].Capacity > farm.GrazingFields[choice].AnimalCount) {
-                    farm.GrazingFields[choice].AddResource (animal);
-                    break;
-                } else {
-                    Console.WriteLine ("Sorry that facility is full.  Please select a different facility.");
-                }
             }
+            int choice = Int32.Parse (Console.ReadLine ());
+            farm.GrazingFields[choice].AddResource (animal);
+
+            // if (farm.GrazingFields[choice].Capacity > farm.GrazingFields[choice].AnimalCount) {
+            //     break;
+            // } else {
+            //     Console.WriteLine ("Sorry that facility is full.  Please select a different facility.");
+            // }
+            // }
 
             /*
                 Couldn't get this to work. Can you?
