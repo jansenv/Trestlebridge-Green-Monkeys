@@ -6,7 +6,7 @@ using Trestlebridge.Models.Animals;
 
 namespace Trestlebridge.Actions {
     public class ChooseGrazingField {
-        public static void CollectInput (Farm farm, IGrazing animal) {
+        public static void CollectInput (Farm farm, IResource animal) {
             Utils.Clear ();
             // while (true) {
             // for (int i = 0; i < farm.GrazingFields.Count; i++) {
@@ -19,11 +19,23 @@ namespace Trestlebridge.Actions {
             Console.WriteLine ($"Place the animal where?");
 
             // Console.Write("> ");
-            foreach (var field in farm.GrazingFields) {
-                if (field.Capacity > field.AnimalCount) {
-                    Console.WriteLine ($"{farm.GrazingFields.IndexOf(field)}. {field}");
+            static void GrazingFieldsPrint (Farm farm) {
+                for (int i = 0; i < farm.GrazingFields.Count; i++) {
+                    Console.Write ($"{i}. Grazing Field {farm.GrazingFields} has {farm.GrazingFields[i].AnimalCount} animals");
+                    farm.GrazingFields[i].AnimalTypeCount ();
+                    Console.WriteLine ();
                 }
             }
+
+            GrazingFieldsPrint (farm);
+
+            // foreach (var field in farm.GrazingFields) {
+            //     if (field.Capacity > field.AnimalCount) {
+            //         Console.Write ($"{farm.GrazingFields.IndexOf(field)}.{field} ");
+            //         field.AnimalTypeCount ();
+            //         Console.WriteLine ("");
+            //     }
+            // }
             int choice = Int32.Parse (Console.ReadLine ());
             farm.GrazingFields[choice].AddResource (animal);
 
