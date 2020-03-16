@@ -9,6 +9,11 @@ namespace Trestlebridge.Models.Facilities {
     private Guid _id = Guid.NewGuid ();
 
     private List<IEggProducing> _ducks = new List<IEggProducing> ();
+    public string ShortId {
+      get {
+        return this._id.ToString ().Substring (this._id.ToString ().Length - 6);
+      }
+    }
     public int AnimalCount {
       get {
         return _ducks.Count;
@@ -38,7 +43,7 @@ namespace Trestlebridge.Models.Facilities {
       if (this._ducks.Count == 1) {
         output.Append ($"Duck house {shortId} has {this._ducks.Count} duck\n");
       } else {
-        output.Append ($"Duck house {shortId} has {this._ducks.Count} _ducks\n");
+        output.Append ($"Duck house {shortId} has {this._ducks.Count} ducks\n");
       }
 
       this._ducks.ForEach (a => output.Append ($"   {a}\n"));

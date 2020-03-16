@@ -30,6 +30,11 @@ namespace Trestlebridge.Models.Facilities {
             // TODO: implement this...
             // throw new NotImplementedException ();
         }
+        public string ShortId {
+            get {
+                return this._id.ToString ().Substring (this._id.ToString ().Length - 6);
+            }
+        }
 
         public override string ToString () {
             StringBuilder output = new StringBuilder ();
