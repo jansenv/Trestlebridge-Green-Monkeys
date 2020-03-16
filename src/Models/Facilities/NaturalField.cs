@@ -18,7 +18,7 @@ namespace Trestlebridge.Models.Facilities
         {
             get
             {
-                return _rowCapacity * _plantPerRowCapacity;
+                return _rowCapacity;
             }
         }
         public void AddResource(IResource plant)
@@ -46,6 +46,14 @@ namespace Trestlebridge.Models.Facilities
         public string PlantCount()
         {
             return $"({this._plants.Count} plants)";
+        }
+
+        public int PlantCountInt
+        {
+            get
+            {
+                return _plants.Count;
+            }
         }
 
         public void PlantTypeCount()
