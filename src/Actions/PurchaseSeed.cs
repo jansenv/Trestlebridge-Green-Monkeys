@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using Trestlebridge.Interfaces;
 using Trestlebridge.Models;
-using Trestlebridge.Models.Animals;
 using Trestlebridge.Models.Facilities;
 using Trestlebridge.Models.Plants;
 
@@ -31,13 +30,13 @@ namespace Trestlebridge.Actions
             switch (Int32.Parse(choice))
             {
                 case 0:
-                    ChoosePlowedField.CollectInput(farm, new Sesame());
+                    ChoosePlantField.CollectInput(farm, new Sesame(), 1);
                     break;
                 case 1:
-                    ChooseNaturalField.CollectInput(farm, new Sunflower());
+                    ChoosePlantField.CollectInput(farm, new Sunflower(), 3);
                     break;
                 case 2:
-                    ChooseNaturalField.CollectInput(farm, new Wildflower());
+                    ChoosePlantField.CollectInput(farm, new Wildflower(), 2);
                     break;
                 default:
                     break;

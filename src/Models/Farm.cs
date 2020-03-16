@@ -31,7 +31,7 @@ namespace Trestlebridge.Models
                     ChickenHomes[index].AddResource((IEggProducing)resource);
                     break;
                 case "Sesame":
-                    PlowedFields[index].AddResource((ISeedProducing)resource);
+                    PlowedFields[index].AddResource((IResource)resource);
                     break;
                 case "Wildflower":
                     NaturalFields[index].AddResource((IResource)resource);

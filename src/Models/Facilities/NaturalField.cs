@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Trestlebridge.Interfaces;
 
@@ -41,5 +42,45 @@ namespace Trestlebridge.Models.Facilities
 
             return output.ToString();
         }
+
+        public string PlantCount()
+        {
+            return $"({this._plants.Count} plants)";
+        }
+
+        public void PlantTypeCount()
+        {
+            if (this._plants.Count > 0)
+            {
+                var PlantTypeCount = this._plants
+                    .GroupBy(Plant => Plant.Type)
+                    .Select(group =>
+                    {
+                        return new PlantTypeReport
+                        {
+                            PlantType = group.Key,
+                            PlantCount = group.Count()
+                        };
+                    });
+
+                foreach (var report in PlantTypeCount)
+                {
+                    if (report.PlantCount == 1)
+                    {
+                        Console.Write($"({report.PlantCount} {report.PlantType}) ");
+                    }
+                    else
+                    {
+                        Console.Write($"({report.PlantCount} {report.PlantType}s) ");
+                    }
+                }
+            }
+        }
+    }
+
+    public class PlantTypeReport
+    {
+        public string PlantType { get; set; }
+        public int PlantCount { get; set; }
     }
 }
