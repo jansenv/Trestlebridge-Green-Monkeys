@@ -92,7 +92,6 @@ namespace Trestlebridge.Actions
 
             // How can I output the type of Plant chosen here?
 
-
             // if (fieldTypeNum == 1)
             // {
             //     farm.PlowedFields[choice].AddResource(Plant);
