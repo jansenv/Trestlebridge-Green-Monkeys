@@ -18,7 +18,7 @@ namespace Trestlebridge.Actions
 
             foreach (var plant in plantList)
             {
-                Console.WriteLine($"{plantList.IndexOf(plant)}. {plant}");
+                Console.WriteLine($"{plantList.IndexOf(plant) + 1}. {plant}");
             }
 
             Console.WriteLine();
@@ -29,13 +29,13 @@ namespace Trestlebridge.Actions
 
             switch (Int32.Parse(choice))
             {
-                case 0:
+                case 1:
                     ChoosePlantField.CollectInput(farm, new Sesame(), 1);
                     break;
-                case 1:
+                case 2:
                     ChoosePlantField.CollectInput(farm, new Sunflower(), 3);
                     break;
-                case 2:
+                case 3:
                     ChoosePlantField.CollectInput(farm, new Wildflower(), 2);
                     break;
                 default:
