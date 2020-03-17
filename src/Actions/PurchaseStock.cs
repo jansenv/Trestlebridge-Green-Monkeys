@@ -32,14 +32,12 @@ namespace Trestlebridge.Actions {
             switch (Int32.Parse (choice)) {
                 case 1:
 
-                    // create chooseChickenHouse
                     ChooseChickenHouse.CollectInput (farm, new Chicken ());
                     break;
                 case 2:
                     ChooseGrazingField.CollectInput (farm, new Cow ());
                     break;
                 case 3:
-                    // create chooseDuckHouse
                     ChooseDuckHouse.CollectInput (farm, new Duck ());
                     break;
                 case 4:

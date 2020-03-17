@@ -27,14 +27,9 @@ namespace Trestlebridge.Models.Facilities {
 
     public void AddResource (IEggProducing animal) {
       _ducks.Add (animal);
-      // TODO: implement this...
-      // throw new NotImplementedException();
     }
 
-    public void AddResource (List<IEggProducing> animals) {
-      // TODO: implement this...
-      // throw new NotImplementedException();
-    }
+    public void AddResource (List<IEggProducing> animals) { }
 
     public override string ToString () {
       StringBuilder output = new StringBuilder ();
