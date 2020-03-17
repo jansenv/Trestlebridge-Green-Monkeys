@@ -9,14 +9,6 @@ namespace Trestlebridge.Actions {
         public static void CollectInput (Farm farm, IEggProducing animal) {
             Utils.Clear ();
 
-            // for (int i = 0; i < farm.DuckHomes.Count; i++)
-            // {
-            //     Console.WriteLine($"{i + 1}. Duck House");
-            // }
-
-            // Console.WriteLine();
-
-            // How can I output the type of animal chosen here?
             Console.WriteLine ($"Place the animal where?");
 
             static void duckHouseSelect (Farm farm, IEggProducing animal) {
@@ -33,22 +25,6 @@ namespace Trestlebridge.Actions {
             }
 
             duckHouseSelect (farm, animal);
-            // Console.Write("> ");
-            // foreach (var home in farm.DuckHomes) {
-            //     if (home.Capacity > home.AnimalCount) {
-
-            //         Console.WriteLine ($"{farm.DuckHomes.IndexOf(home)}. {home}");
-            //     }
-            // }
-            // int choice = Int32.Parse (Console.ReadLine ());
-
-            // farm.DuckHomes[choice].AddResource (animal);
-
-            /*
-                Couldn't get this to work. Can you?
-                Stretch goal. Only if the app is fully functional.
-             */
-            // farm.PurchaseResource<IEggProducing>(animal, choice);
 
         }
     }

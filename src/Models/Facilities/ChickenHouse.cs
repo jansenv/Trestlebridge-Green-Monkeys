@@ -26,12 +26,10 @@ namespace Trestlebridge.Models.Facilities {
     }
 
     public void AddResource (IEggProducing animal) {
-      // TODO: implement this...
       _chickens.Add (animal);
     }
 
     public void AddResource (List<IEggProducing> animals) {
-      // TODO: implement this...
 
     }
 

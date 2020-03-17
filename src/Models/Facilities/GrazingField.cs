@@ -22,14 +22,10 @@ namespace Trestlebridge.Models.Facilities {
             }
         }
         public void AddResource (IResource animal) {
-            // TODO: implement this...
             _animals.Add (animal);
         }
 
-        public void AddResource (List<IResource> animals) {
-            // TODO: implement this...
-            // throw new NotImplementedException ();
-        }
+        public void AddResource (List<IResource> animals) { }
         public string ShortId {
             get {
                 return this._id.ToString ().Substring (this._id.ToString ().Length - 6);

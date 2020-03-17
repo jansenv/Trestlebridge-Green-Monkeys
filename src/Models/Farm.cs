@@ -12,10 +12,6 @@ namespace Trestlebridge.Models {
         public List<PlowedField> PlowedFields { get; } = new List<PlowedField> ();
         public List<DuckHouse> DuckHomes { get; } = new List<DuckHouse> ();
 
-        /*
-            This method must specify the correct product interface of the
-            resource being purchased.
-         */
         public void PurchaseResource<T> (IResource resource, int index) {
             Console.WriteLine (typeof (T).ToString ());
             switch (typeof (T).ToString ()) {
